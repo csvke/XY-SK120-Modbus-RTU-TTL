@@ -114,17 +114,25 @@ but not in the Modbus register map documentation
 // BCH setting (Battery Charging)
 
 
+// CLOF setting (Force power output off when switching data sets)
+// Cannot probe the register for CLOF setting despite the best effort, so it's not implemented
+
+// POFF (Shutdown function) (On: Enable the shutdown function by pressing the OSD power button for 5 seconds, Off: Disable the shutdown function, cannot locate register)
+// Cannot probe the register for POFF setting despite the best effort, so it's not implemented
+
+/* Below are calibration registers, available in the XY-SK120 manual and OSD (On-Screen Display) */
+
+// Voltage calibration registers
+#define REG_VOLTAGE_ZERO      0x1007  // Voltage readback zero point (*10), 2 bytes, 0 decimal places, Read and Write
+#define REG_VOLTAGE_SCALE_L   0x1008  // Voltage readback scale factor low 16 bits, 2 bytes, 0 decimal places, Read and Write
+#define REG_VOLTAGE_SCALE_H   0x1009  // Voltage readback scale factor high 16 bits, 2 bytes, 0 decimal places, Read and Write
+
 // CLU setting (Calibrate output voltage)
 
 // CLA setting (Calibrate output current)
 
 // Zero setting (Current zero calibration)
 
-// CLOF setting (Force power output off when switching data sets)
-// Cannot probe the register for CLOF setting despite the best effort, so it's not implemented
-
-// POFF (Shutdown function) (On: Enable the shutdown function by pressing the OSD power button for 5 seconds, Off: Disable the shutdown function, cannot locate register)
-// Cannot probe the register for POFF setting despite the best effort, so it's not implemented
 
 // Device status cache structure
 struct DeviceStatus {
